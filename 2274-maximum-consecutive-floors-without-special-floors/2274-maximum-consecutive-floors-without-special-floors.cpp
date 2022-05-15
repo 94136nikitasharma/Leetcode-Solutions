@@ -2,20 +2,13 @@ class Solution {
 public:
     int maxConsecutive(int bottom, int top, vector<int>& special) {
         
-        sort(special.begin(),special.end());
+        int res(0), n(size(special));
+        sort(begin(special), end(special));
         
-        int op1=special[0]-bottom;
-        int mx=op1;
-        int i;
-      
-        int n=special.size();
-        for(i=0;i<n-1;i++)
-        {
-            mx=max(mx,special[i+1]-special[i]-1);
-
+        for (int i=1; i<n; i++) {
+            res = max(res, special[i]-special[i-1]-1);
         }
-        mx=max(mx,top-special[n-1]);
-    
-        return mx;
+                
+        return max({res, special[0]-bottom, top-special[n-1]});
     }
 };
