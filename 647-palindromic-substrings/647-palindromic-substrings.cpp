@@ -1,25 +1,22 @@
 class Solution {
 public:
-    int countSubstrings(string s) {
-        int n = s.size();
-        int l, r, ans = 0;
-        for(int i=0;i<n;i++){
-            l =  r = i;
-            while(l>=0 && r<n){
-                if(s[l]==s[r]) ans++;
-                else break;
-                l--;
-                r++;
-            }
-            if(i==0) continue;
-            l = i-1, r = i;
-            while(l>=0 && r<n){
-                if(s[l]==s[r]) ans++;
-                else break;
-                l--;
-                r++;
-            }
+    int cnt=0;
+    void palindrome(string s,int start,int end)
+    {
+        while(start>=0 and end<=s.length() and s[start]==s[end])
+        {
+           cnt++;
+            start--;
+            end++;
+            
         }
-        return ans;
+    }
+    int countSubstrings(string s) {
+       for(int i=0;i<s.length();i++)
+       {
+           palindrome(s,i,i);
+           palindrome(s,i,i+1);
+       }
+        return cnt;
     }
 };
