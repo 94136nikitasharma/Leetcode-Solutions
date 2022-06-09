@@ -14,7 +14,7 @@ class Solution
         int j=0;
         int sum=0;
         vector<int>ans;
-        while(i<=n and j<=n)
+        while(i<n or j<n)
         {
             if(sum==s)
             {
