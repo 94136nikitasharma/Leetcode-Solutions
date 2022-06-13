@@ -1,7 +1,6 @@
 class Solution {
 public:
     int maximumUniqueSubarray(vector<int>& nums) {
-        int i=0;
         int j=0;
         int sum=0;
         int mx=0;
@@ -13,16 +12,16 @@ public:
             mpp[nums[i]]++;
             if(mpp[nums[i]]>1)
             {
-                while(j<nums.size() && mpp[nums[i]]>1)
+                while(j<n and mpp[nums[i]]>1)
                 {
+                    
                     sum-=nums[j];
                     mpp[nums[j]]--;
-                    j++;
+                     j++;
                 }
             }
-              mx = max(mx,sum);
+            mx=max(mx,sum);
         }
-        return mx;
-        
+      return mx;
     }
 };
