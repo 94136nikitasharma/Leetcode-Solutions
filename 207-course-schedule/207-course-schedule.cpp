@@ -9,7 +9,7 @@ public:
         
         for(auto e:prerequisites){  
                                      
-            adj[e[1]].push_back(e[0]); 
+            adj[e[0]].push_back(e[1]); 
         }
         vector<int> vis(n,0);  
         vector<int> dfsvis(n,0);
