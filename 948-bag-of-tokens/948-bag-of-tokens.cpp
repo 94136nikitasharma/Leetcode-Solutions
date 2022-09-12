@@ -5,7 +5,7 @@ public:
         int i=0;
         int j=tokens.size()-1;
         int score=0;
-        int res=0;
+       int res=0;
         while(i<=j)
         {
             if(tokens[i]<=power)
