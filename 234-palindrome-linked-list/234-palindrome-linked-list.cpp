@@ -15,8 +15,9 @@ public:
         ListNode*slow=head;
         while(fast->next!=NULL and fast->next->next!=NULL)
         {
+           fast=fast->next->next;
             slow=slow->next;
-            fast=fast->next->next;
+            
         }
         slow->next=reverseList(slow->next);
         slow=slow->next;
@@ -33,14 +34,16 @@ public:
     }
     ListNode*reverseList(ListNode*head)
     {
-        ListNode* pre=NULL;
-        ListNode* next=NULL;
-        while(head!=NULL){
-            next=head->next;
-            head->next=pre;
-            pre=head;
-            head=next;
+        ListNode*curr=head;
+        ListNode*prev=NULL;
+        ListNode*next;
+        while(curr!=NULL)
+        {
+            next=curr->next;
+            curr->next=prev;
+            prev=curr;
+            curr=next;
         }
-        return pre;
+        return prev;
     }
 };
